@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>研究知情同意书</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #4CAF50;
+            padding-bottom: 10px;
+        }
+        .consent-container {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 25px;
+            margin-bottom: 25px;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+        h1 {
+            color: #2c3e50;
+            font-size: 24px;
+        }
+        h2 {
+            color: #4CAF50;
+            font-size: 20px;
+            margin-top: 25px;
+            border-left: 4px solid #4CAF50;
+            padding-left: 10px;
+        }
+        .agree-section {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        .btn {
+            display: block;
+            width: 200px;
+            padding: 12px;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+        }
+        .btn:hover:enabled {
+            background-color: #45a049;
+        }
+        .loading {
+            display: none;
+            text-align: center;
+            margin: 20px 0;
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            .consent-container {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>研究知情同意书</h1>
+    </div>
+    
+    <div class="consent-container">
+        <h2>为什么要做这项研究</h2>
+        <p>这项研究是为了调查人们如何看待和回应工作场所中的某些情景。</p>
+        
+        <h2>你需要做什么</h2>
+        <p>你需要完成一项调查。在这项调查中，你将阅读一个场景，并按要求对该场景中所描述的内容给出自己的看法和回答。同时，你还需要回答一系列个人相关的问题。整个调查大约需要10分钟。请注意所有的回答并没有好坏之分，所以请放心作答。</p>
+        
+        <h2>参与风险</h2>
+        <p>参与这项研究没有任何已知的风险。</p>
+        
+        <h2>信息安全</h2>
+        <p>你的所有回答都是完全保密的、匿名的。这项研究的结果将发表在学术期刊上，并将根据所有参与者的回答以汇总的形式进行报告。问卷数据将被安全保存，只有研究小组成员可以查阅。所以请你按照实际想法认真、如实填写。通常，你的第一感觉就是最准确的。</p>
+        
+        <h2>自愿参与</h2>
+        <p>你的参与是自愿的，你的决定决不会影响到你的成绩。你可以随时退出并终止参与，而不会对你造成任何不利或受到任何惩罚。你不需要回答任何你不愿意回答的问题。</p>
+        
+        <h2>疑问/更多信息</h2>
+        <p>如果你对本研究有任何问题、顾虑、或希望获得更多信息，请联系021-25011128。</p>
+        
+        <h2>研究道德</h2>
+        <p>如果你对这项研究的道德行为有任何顾虑或投诉，请联系021-25011128。</p>
+        
+        <h2>同意须知</h2>
+        <p>请保留这张纸，以供以后参考。一旦填写这份调查，即表示你同意参与这项研究。</p>
+        
+        <p>感谢你的配合与参与！</p>
+    </div>
+    
+    <div class="agree-section">
+        <label>
+            <input type="checkbox" id="agree-checkbox">
+            <strong>我已阅读并理解上述信息，同意参与本研究</strong>
+        </label>
+    </div>
+    
+    <button id="continue-btn" class="btn" disabled>开始AI互动</button>
+    
+    <div id="loading" class="loading">
+        <p>正在进入AI互动环节...</p>
+    </div>
+
+    <script>
+        const checkbox = document.getElementById('agree-checkbox');
+        const continueBtn = document.getElementById('continue-btn');
+        const loadingDiv = document.getElementById('loading');
+        
+        // 启用/禁用继续按钮
+        checkbox.addEventListener('change', function() {
+            continueBtn.disabled = !this.checked;
+        });
+        
+        // 继续按钮点击事件
+        continueBtn.addEventListener('click', function() {
+            // 显示加载状态
+            loadingDiv.style.display = 'block';
+            continueBtn.disabled = true;
+            
+            // 存储同意时间（可选）
+            const consentData = {
+                timestamp: new Date().toISOString(),
+                userAgent: navigator.userAgent,
+                agreed: true
+            };
+            
+            // 可以在这里添加数据记录代码（如需）
+            // 例如使用Google Forms或发送到服务器
+            
+            // 跳转到Dify AI互动
+            setTimeout(() => {
+                window.location.href = "https://udify.app/chat/M5tM5ezsJui7973L";
+            }, 1500); // 短暂延迟让用户看到反馈
+        });
+        
+        // 防止意外关闭（可选）
+        window.addEventListener('beforeunload', function(e) {
+            if(checkbox.checked && !sessionStorage.getItem('redirected')) {
+                e.preventDefault();
+                e.returnValue = '您已经同意参与研究，确定要离开吗？';
+            }
+        });
+    </script>
+</body>
+</html>
